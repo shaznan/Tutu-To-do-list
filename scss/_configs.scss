@@ -1,0 +1,48 @@
+//colors
+
+$Accentcolour: #3868a6;
+$maincolor: #7659a6;
+
+//font
+@font-face {
+  font-family: "Product_sans";
+  src: url("/fonts/Product\ Sans\ Regular.ttf"); /* IE9 Compat Modes */
+}
+
+$secondaryfont: "Product_sans";
+
+//glassmorphism
+@mixin glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+}
+
+@mixin card {
+  padding: 40px;
+  text-align: center;
+  border-radius: 38px;
+  @include glassmorphism;
+  transition: 0.5s;
+}
+
+@mixin button {
+  font-family: $secondaryfont;
+  margin-top: 2rem;
+  padding: 6px 20px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+}
+
+body {
+  background-image: url(/dist/images/BG_image.jpg);
+  background-size: cover;
+}
+
+//Media Queries
+
+@media (min-width: 1140px) {
+  .container {
+    max-width: 92%;
+  }
+}

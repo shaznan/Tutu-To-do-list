@@ -1,0 +1,617 @@
+@font-face {
+  font-family: "Product_sans";
+  src: url("/fonts/Product Sans Regular.ttf");
+  /* IE9 Compat Modes */
+}
+
+body {
+  background-image: url(/dist/images/BG_image.jpg);
+  background-size: cover;
+}
+
+@media (min-width: 1140px) {
+  .container {
+    max-width: 92%;
+  }
+}
+
+* {
+  margin: 0%;
+  padding: 0%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.checkbox-label input {
+  opacity: 0;
+}
+
+.checkbox-custom {
+  position: absolute;
+  top: 4px;
+  left: 12px;
+  height: 18px;
+  width: 18px;
+  background-color: transparent;
+  border-radius: 5px;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  border: 2px solid #b4b1b1;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom {
+  background-color: #ffffff;
+  border-radius: 5px;
+  -webkit-transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+  border: 2px solid #ffffff;
+}
+
+.checkbox-label .checkbox-custom::after {
+  position: absolute;
+  content: "";
+  left: 8px;
+  top: 8px;
+  height: 0px;
+  width: 0px;
+  border-radius: 5px;
+  border: solid #009bff;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(0deg) scale(0);
+  transform: rotate(0deg) scale(0);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom::after {
+  -webkit-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 12px;
+  border: solid #7659a6;
+  border-width: 0 2px 2px 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/* For Ripple Effect */
+.checkbox-label .checkbox-custom::before {
+  position: absolute;
+  content: "";
+  left: 10px;
+  top: 10px;
+  width: 0px;
+  height: 0px;
+  border-radius: 5px;
+  border: 2px solid #ffffff;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.checkbox-label input:checked ~ .checkbox-custom::before {
+  left: -3px;
+  top: -3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  -webkit-transform: scale(3);
+  transform: scale(3);
+  opacity: 0;
+  z-index: 999;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+.checkbox-label .checkbox-custom.circular {
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom.circular {
+  background-color: #ffffff;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom.circular::after {
+  border: solid #0067ff;
+  border-width: 0 2px 2px 0;
+}
+
+.checkbox-label .checkbox-custom.circular::after {
+  border-radius: 50%;
+}
+
+.checkbox-label .checkbox-custom.circular::before {
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom.circular::before {
+  border-radius: 50%;
+}
+
+.welcome-container {
+  padding: 40px;
+  text-align: center;
+  border-radius: 38px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 100%;
+  position: absolute;
+  top: 25vh;
+  z-index: +20;
+}
+
+.hide--welcome-container {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+}
+
+.welcome-heading {
+  font-family: "Poppins", sans-serif;
+  display: block;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #3868a6;
+}
+
+.welcome-text {
+  font-family: "Product_sans";
+  color: #3868a6;
+  font-size: 1.1rem;
+}
+
+.welcome-btn {
+  font-family: "Product_sans";
+  margin-top: 2rem;
+  padding: 6px 20px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  background: -webkit-gradient(linear, left top, right top, from(#72f1fe), to(#e469fb));
+  background: linear-gradient(to right, #72f1fe, #e469fb);
+  margin-top: 1.4rem;
+}
+
+.control-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: "Product_sans";
+}
+
+.login-container {
+  position: absolute;
+  top: 25vh;
+  padding: 40px;
+  text-align: center;
+  border-radius: 38px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0%;
+  z-index: +20;
+}
+
+.Reveal--login-container {
+  opacity: 100%;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.hide--login-container {
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.login-heading {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #3868a6;
+}
+
+.login-btn {
+  font-family: "Product_sans";
+  margin-top: 2rem;
+  padding: 6px 20px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  background-color: #3868a6;
+  border-radius: 7px;
+  margin-top: 1.1rem;
+}
+
+.username {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.user-info {
+  margin-right: 2rem;
+  font-family: "Product_sans";
+  font-weight: bold;
+  color: #7659a6;
+}
+
+.search-bar {
+  border-radius: 39px;
+  border: none;
+  width: 25vw;
+  height: 2.2rem;
+}
+
+.switch-user-btn {
+  font-family: "Product_sans";
+  margin-top: 2rem;
+  padding: 6px 20px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #3868a6;
+  padding: 0.3rem 1.15rem;
+}
+
+.search-bar {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding-left: 2rem;
+}
+
+.search-bar:focus {
+  -webkit-box-shadow: 2px 2px 42px rgba(167, 167, 167, 0.5);
+          box-shadow: 2px 2px 42px rgba(167, 167, 167, 0.5);
+}
+
+.main-area {
+  height: 78.5vh;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  border-radius: 52px 52px 0px 0px;
+}
+
+.take-note-minibox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.3rem 1rem;
+  border-radius: 13px;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: white;
+  -webkit-box-shadow: 0px 3px 42px rgba(177, 177, 177, 0.2);
+          box-shadow: 0px 3px 42px rgba(177, 177, 177, 0.2);
+}
+
+.take-note-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.take-note {
+  font-size: 1.3rem;
+  border: none;
+}
+
+.check-box-icon {
+  font-size: 2rem;
+  opacity: 0.4;
+}
+
+.todo-container {
+  width: 85%;
+  border-radius: 28px 28px 28px 28px;
+}
+
+.todo-card-title {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  padding: 1rem 1rem;
+  padding-left: 2rem;
+  border-radius: 22px 22px 0px 0px;
+  -webkit-box-shadow: 3px -3px 42px rgba(177, 177, 177, 0.2);
+          box-shadow: 3px -3px 42px rgba(177, 177, 177, 0.2);
+}
+
+.todo-card-body {
+  padding: 1rem;
+  padding-left: 2rem;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  border-radius: 0px 0px 22px 22px;
+  -webkit-box-shadow: 0px 3px 42px rgba(177, 177, 177, 0.2);
+          box-shadow: 0px 3px 42px rgba(177, 177, 177, 0.2);
+}
+
+.todo-card-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #3868a6;
+}
+
+.item {
+  margin-bottom: 0.4rem;
+}
+
+.checkbox {
+  display: inline-block;
+}
+
+.label-text {
+  word-wrap: break-word;
+}
+
+.left-column-container {
+  padding-top: 4rem;
+  padding-left: 9rem;
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  border-radius: 52px 0px 0px 52px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 0.5rem 10rem 0.5rem 1rem;
+  z-index: +5;
+}
+
+.Assign-tasks {
+  border: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 33px;
+  margin-left: -10px;
+  margin-top: 30px;
+  z-index: +1;
+}
+
+.take-note-container {
+  background-color: #ffffff;
+  width: 25vw;
+  border-radius: 13px;
+  -webkit-box-shadow: 0px 3px 42px rgba(177, 177, 177, 0.2);
+          box-shadow: 0px 3px 42px rgba(177, 177, 177, 0.2);
+}
+
+.take-note-title {
+  width: 100%;
+}
+
+.take-note-title-text {
+  width: 25vw;
+  height: 4.5vh;
+  padding: 1.7rem 1.5rem;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 13px;
+}
+
+.take-a-note-extended {
+  width: 25vw;
+  height: 5vh;
+  padding: 1.5rem 1.5rem;
+  border: none;
+}
+
+.line-divider {
+  background-color: #5554545b;
+  height: 1px;
+  width: 93%;
+  margin: auto;
+}
+
+.paint-bucket {
+  font-size: 1.5rem;
+  color: #7659a6;
+  opacity: 0.5;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.paint-bucket:hover {
+  opacity: 1;
+}
+
+.pain-container {
+  position: relative;
+}
+
+.pain-container:hover #color-options {
+  visibility: visible;
+}
+
+#color-options {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px 10px;
+  background-color: white;
+  -webkit-box-shadow: 0px 3px 20px rgba(177, 177, 177, 0.4);
+          box-shadow: 0px 3px 20px rgba(177, 177, 177, 0.4);
+  bottom: 2.5rem;
+  left: -3rem;
+  border-radius: 8px;
+  visibility: hidden;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.purple {
+  background-color: #7659a6;
+  width: 1vw;
+  height: 2vh;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.purple:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.yellow {
+  background-color: #ffc20e;
+  width: 1vw;
+  height: 2vh;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.yellow:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.dark-pink {
+  background-color: #eed3e4;
+  width: 1vw;
+  height: 2vh;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.dark-pink:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.light-purple {
+  background-color: #d0cbe5;
+  width: 1vw;
+  height: 2vh;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.light-purple:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.Archeive {
+  font-size: 1.5rem;
+  color: #7659a6;
+  opacity: 0.5;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.Archeive:hover {
+  opacity: 1;
+}
+
+.Add-btn {
+  font-size: 1rem;
+  font-family: "Product_sans";
+  background-color: #c9f2ff;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 20px;
+  color: #7659a6;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.Add-btn:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.model-overlay {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-color: #0000003a;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  visibility: hidden;
+}
+
+.assign-task-model {
+  position: absolute;
+  z-index: 6;
+  left: 40%;
+  bottom: 50%;
+  visibility: hidden;
+}
+
+.username-label {
+  margin: 1.8rem 1rem 1.5rem 1.5rem;
+}
+
+.username-input {
+  width: 45%;
+  margin: 1.5rem 1rem 1.5rem 0rem;
+}
+
+.close-button {
+  font-size: 2rem;
+  color: rgba(109, 109, 109, 0.637);
+  margin-left: 5rem;
+}
+
+.dashboard {
+  opacity: 0;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.user-info {
+  opacity: 0;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+/*# sourceMappingURL=main.css.map */
