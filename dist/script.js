@@ -18,6 +18,7 @@ const takeNoteInputExpand = document.querySelector(".text-placeholder");
 const takeNoteBodyExpand = document.querySelector(".takenote-body-expand");
 const titleInputExpand = document.querySelector(".title-placeholder");
 const expandContCloseBtn = document.querySelector(".expand-close-button");
+const addBtnExpand = document.querySelector(".add-btn-expand");
 
 //welcome interaction
 
@@ -31,29 +32,25 @@ welcBtn.addEventListener("click", function () {
 const account1 = {
   name: "Shaznan Fairoze",
   pin: 1234,
-  title: [],
-  takeNotes: [],
+  notes: [],
 };
 
 const account2 = {
   name: "Shazmeer Ramzeen",
   pin: 1111,
-  title: [],
-  takeNotes: [],
+  notes: [],
 };
 
 const account3 = {
   name: "Jarrod Philips",
   pin: 0000,
-  title: [],
-  takeNotes: [],
+  notes: [],
 };
 
 const account4 = {
   name: "Abdullah Hamza",
   pin: 4349,
-  title: [],
-  takeNotes: [],
+  notes: [],
 };
 
 const accounts = [account1, account2, account3, account4];
@@ -71,6 +68,8 @@ const getinitial = accounts.forEach(function (account) {
 
 //Create login access
 
+let loggedInUser = account1; //(need to remove = account1)
+
 loginSubmitButton.addEventListener("click", function (e) {
   e.preventDefault();
   accounts.forEach(function (acc, i) {
@@ -78,6 +77,8 @@ loginSubmitButton.addEventListener("click", function (e) {
       acc.username == loginTextInput.value.toLowerCase() &&
       acc.pin == loginPasswordInput.value
     ) {
+      loggedInUser = acc; //logged in User (insert ths)
+      // console.log(loggedInUser);
       loginContainer.classList.add("hide--login-container");
       dashboard.style.opacity = "1";
       userInfo.style.opacity = "1";
@@ -124,7 +125,9 @@ const ExpandcloseBtn = function () {
     //reset background color
     assignColor("white");
     //remove contents
-    takeNoteBodyExpand.innerHTML = `<input class=" take-a-note-extended text-placeholder" type="text" placeholder=" Take a note..">`;
+    takeNoteBodyExpand.innerHTML = `<div class="item-list d-flex">
+    <input class=" take-a-note-extended  text-placeholder" type="text" placeholder=" Take a note.."><button class="delete-item "><i class="bi bi-trash-fill"></i></button>                          
+  </div>`;
   });
 };
 
@@ -134,22 +137,70 @@ ExpandcloseBtn();
 
 //place square text box as a place holder - done
 //add keydown event listener for enter button and create a new line with a new placeholder
+// let nodeLength;
 
 const newLine = function () {
-  // let counter = 0;
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Enter" && takeNoteBodyExpand.lastElementChild.value != "") {
+    if (
+      e.key === "Enter" &&
+      takeNoteBodyExpand.lastElementChild.childNodes[1].value != ""
+    ) {
       takeNoteBodyExpand.insertAdjacentHTML(
         "beforeend",
-        `<input class=" take-a-note-extended text-placeholder" type="text" placeholder=" Take a note.."> `
+        `   <div class="item-list d-flex">
+        <input class=" take-a-note-extended text-placeholder" type="text" placeholder=" Take a note.."><button class="delete-item"><i class="bi bi-trash-fill"></i></button>                          
+      </div>`
       );
-      takeNoteBodyExpand.lastElementChild.focus();
+      // takeNoteBodyExpand.lastElementChild.focus();
+      takeNoteBodyExpand.lastElementChild.childNodes[1].focus();
+      // takeNoteBodyExpand.lastElementChild.childNodes[1].classList.add(
+      //   "has-focus"
+      // );
+
+      let deleteBtn = document.querySelectorAll(".delete-item");
+
+      // Button even listeners
+      deleteBtn.forEach(function (button, i) {
+        if (button.parentElement != takeNoteBodyExpand.lastChild) {
+          button.addEventListener("click", function () {
+            this.parentElement.remove();
+          });
+        }
+      }); //foreach
     }
   });
 };
 newLine();
 
-//delete previous with backspace / delete individual elements on cross
+//add button - push to accounts as objects with property title, list array, and backgroundcolor
+//everytime add button is clicked the new object goes inside the array
+
+//Add items to object array
+const addToDoList = function () {
+  addBtnExpand.addEventListener("click", function () {
+    let selectInputValues = Array.from(
+      //converts node list to actual array
+      document.querySelectorAll(".text-placeholder")
+    );
+    loggedInUser.notes.push({
+      title: titleInputExpand.value,
+      text: selectInputValues.map((x) => x.value),
+    });
+    // console.log(loggedInUser);
+  });
+  //  = titleInputExpand.value
+};
+addToDoList();
+
+//Get the background color as well to the object
+//close window when add button is clicked
+//under addtodo list itself create a virtual dom for the created object
+
+// const account1 = {
+//   name: "Shaznan Fairoze",
+//   pin: 1234,
+//   notes: [{}],
+// };
 
 //Pain bucket
 
