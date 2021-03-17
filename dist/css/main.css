@@ -161,10 +161,22 @@ button:focus {
           backdrop-filter: blur(20px);
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  opacity: 100%;
+  opacity: 0;
   position: absolute;
   top: 25vh;
   z-index: +20;
+}
+
+.dashboard {
+  opacity: 100;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.user-info {
+  opacity: 100;
+  -webkit-transition: 2s;
+  transition: 2s;
 }
 
 .hide--welcome-container {
@@ -299,6 +311,7 @@ button:focus {
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   border-radius: 52px 52px 0px 0px;
+  overflow: scroll;
 }
 
 .take-note-minibox {
@@ -321,16 +334,37 @@ button:focus {
   background-color: white;
   -webkit-box-shadow: 0px 3px 42px rgba(177, 177, 177, 0.2);
           box-shadow: 0px 3px 42px rgba(177, 177, 177, 0.2);
+  -webkit-transition: 5s;
+  transition: 5s;
+}
+
+.expand-container {
+  display: none;
+  opacity: 0;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.text-placeholder {
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.title-placeholder {
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.visible {
+  display: block;
+}
+
+.opacity {
+  opacity: 1;
 }
 
 .take-note-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  position: relative;
 }
 
 .take-note {
@@ -341,6 +375,13 @@ button:focus {
 .check-box-icon {
   font-size: 2rem;
   opacity: 0.4;
+}
+
+.expand-close-button {
+  position: absolute;
+  right: 1rem;
+  font-size: 2rem;
+  color: rgba(109, 109, 109, 0.637);
 }
 
 .todo-container {
@@ -486,7 +527,7 @@ button:focus {
 }
 
 .purple {
-  background-color: #7659a6;
+  background-color: #83d6f7;
   width: 1vw;
   height: 2vh;
   border-radius: 4px;
@@ -601,17 +642,5 @@ button:focus {
   font-size: 2rem;
   color: rgba(109, 109, 109, 0.637);
   margin-left: 5rem;
-}
-
-.dashboard {
-  opacity: 0;
-  -webkit-transition: 2s;
-  transition: 2s;
-}
-
-.user-info {
-  opacity: 0;
-  -webkit-transition: 2s;
-  transition: 2s;
 }
 /*# sourceMappingURL=main.css.map */

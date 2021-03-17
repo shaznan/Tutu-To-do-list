@@ -40,12 +40,8 @@
             <div
               class="user-info d-flex justify-content-end align-items-center"
             >
-              <div class="username mr-3">Shaznan Fairoze</div>
-              <img
-                src="/dist/images/avatar-01.png"
-                alt="Profile-avatar"
-                width="60vh"
-              />
+              <div class="username mr-3"></div>
+              <div class="profile-avatar"> </div>
             </div>
           </div>
         </header>
@@ -176,23 +172,26 @@
 
                     <div class="col-10 main-area ">
 
-                      <!---Take note container expand-->
-                      <!-- <div class="d-flex justify-content-center">
-                        <div class="mt-4 take-note-container ">
+                      <!-- -Take note container expand-->
+                      <div class="d-flex justify-content-center ">
+                        <div class="mt-4 take-note-container expand-container">
                           <div class="take-note-title">
-                            <input class="take-note-title-text" type="text" name="title" placeholder="Title">
+                            <input class="take-note-title-text title-placeholder" type="text" name="title" placeholder="Title">
+                            <i class="bi bi-x expand-close-button"></i>
                           </div>
                           <div class="line-divider"></div>
-                          <div class="takenote-body">
-                            <input class=" take-a-note-extended" type="text" placeholder="Take a note...">                          
+                          <div class="takenote-body takenote-body-expand"> 
+                            <div class="item-list d-flex">
+                              <input class=" take-a-note-extended text-placeholder" type="text" placeholder=" Take a note.."><button></button>                          
+                            </div>
                           </div>
                           <div class="take-note-footer d-flex justify-content-end mb-2 mt-5">
                             <div class="pain-container">
                               <div id="color-options">
-                                <div class="purple"></div>
-                                <div class="yellow"></div>
-                                <div class="dark-pink"></div>
-                                <div class="light-purple"></div>
+                                <div class="purple paint-color"></div>
+                                <div class="yellow paint-color"></div>
+                                <div class="dark-pink paint-color"></div>
+                                <div class="light-purple paint-color"></div>
                               </div>
                               <div class="mr-4 paint-bucket"><i class="bi bi-palette"></i></div>
                             </div>
@@ -200,7 +199,8 @@
                               <button class="mr-4 Add-btn" type="button">Add</button>
                           </div> 
                       </div>
-                    </div>--End container expand -->
+                    </div>
+                    <!-- --End container expand -->
                       
                         <!---minimize text box-->
                         <div class="take-note-mini-container d-flex justify-content-center mt-5">
