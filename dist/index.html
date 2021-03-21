@@ -125,9 +125,9 @@
                       <div class="d-flex  active ">
                         <i class="bi bi-check mr-3" ></i><div class="notes"> Notes</div>
                       </div>
-                      <div class="d-flex">
+                      <!-- <div class="d-flex">
                         <i class="bi bi-archive-fill mr-3"></i><div class="Archeives"> Archieve</div>
-                      </div>
+                      </div> -->
                       <div class=" ">
                          <button class="Assign-tasks"><i class="bi bi-plus-square-dotted mr-2"></i>Assign tasks</button>
                       </div>
@@ -143,17 +143,17 @@
                           <div class="username-container d-flex">
                             <div class="username-label">Username : </div>
                             <input class="username-input form-control"></input>
-                            <i class="bi bi-x close-button"></i>
+                            <i class="bi bi-x close-button assign-task-close-btn"></i>
                           </div>
                           <div class="line-divider"></div>
-                          <div class="take-note-title">
-                            <input class="take-note-title-text" type="text" name="title" placeholder="Title">
+                          <div class="take-note-title ">
+                            <input class="take-note-title-text assign-note-title " type="text" name="title" placeholder="Title">
                           </div>
                           <div class="takenote-body">
-                            <input class=" take-a-note-extended" type="text" placeholder="Assign note..">                          
+                            <input class=" take-a-note-extended assign-note-text" type="text" placeholder="Assign note..">                          
                           </div>
                           <div class="take-note-footer d-flex justify-content-end mb-2 mt-5">
-                            <div class="pain-container">
+                            <!-- <div class="pain-container">
                               <div id="color-options">
                                 <div class="purple"></div>
                                 <div class="yellow"></div>
@@ -162,8 +162,8 @@
                               </div>
                               <div class="mr-4 paint-bucket"><i class="bi bi-palette"></i></div>
                             </div>
-                              <div class="mr-4 Archeive"><i class="bi bi-archive"></i></div>
-                              <button class="mr-4 Add-btn" type="button">Add</button>
+                              <div class="mr-4 Archeive"><i class="bi bi-archive"></i></div> -->
+                              <button class="mr-4 Add-btn assign-task-addbtn" type="button">Add</button>
                           </div> 
                       </div>
                       </div>
@@ -175,9 +175,11 @@
                       <!-- -Take note container expand-->
                       <div class="d-flex justify-content-center ">
                         <div class="mt-4 take-note-container expand-container">
-                          <div class="take-note-title">
-                            <input class="take-note-title-text title-placeholder" type="text" name="title" placeholder="Title">
-                            <i class="bi bi-x expand-close-button"></i>
+                          <div class="take-note-title-container">
+                            <div class="take-note-title">
+                              <input class="take-note-title-text title-placeholder" type="text" name="title" placeholder="Title">
+                              <i class="bi bi-x expand-close-button"></i>
+                            </div>
                           </div>
                           <div class="line-divider"></div>
                           <div class="takenote-body takenote-body-expand"> 
@@ -195,7 +197,7 @@
                               </div>
                               <div class="mr-4 paint-bucket"><i class="bi bi-palette"></i></div>
                             </div>
-                              <div class="mr-4 Archeive"><i class="bi bi-archive"></i></div>
+                              <!-- <div class="mr-4 Archeive"><i class="bi bi-archive"></i></div> -->
                               <button class="mr-4 Add-btn add-btn-expand" type="button">Add</button>
                           </div> 
                       </div>
@@ -209,59 +211,54 @@
                             <div class="check-box-icon"><i class="bi bi-check2-square"></i></div>
                           </div>
 
-                        </div>
-<!-- 
-                      <div class="row row-cols-4 to-do-cards mt-5">
-                        <div class="col to-do-list d-flex justify-content-center mb-3">
-                          <div class="todo-container">
-                            <div class="todo-card-title">To Read</div>
-                            <div class="todo-card-body">
-                              <div class="item row"> -->
-                                 <!---item-->
-                                <!-- <label class="col-1 checkbox-label">
-                                  <input class="checkbox " type="checkbox" >
-                                  <span class="checkbox-custom"></span>
+                        </div> <!---End minimize textbox -->
 
-                                  <span class="checkbox-custom"></span>
-                                </label>
-                                <div class="label-text fa-md d-inline col-10">Lorem ipsum dolor sit ame</div>
-                              </div> -->
-                               <!---close item-->
-                              <!-- <div class="item row"> -->
-                                 <!---item-->
-                                <!-- <label class="col-1 checkbox-label">
-                                  <input class="checkbox" type="checkbox" >
-                                  <span class="checkbox-custom"></span>
+                        <div class="cards-area row row-cols-4 mt-5 to-do-cards"></div>  <!----keep!!!-->
+                            <!-- <div class="col to-do-list d-flex justify-content-center mb-3">
+                              <div class="todo-container">
+                                <div class="todo-card-title">To Read</div>
+                                <div class="todo-card-body"> -->
+                             
 
-                                </label>
-                                <div class="label-text fa-md d-inline col-10">Lorem ipsum dolor sit amet.</div>
-                              </div> -->
-                               <!---close item-->
-                              <!-- <div class="item row">  -->
-                                <!---item-->
-                                <!-- <label class="col-1 checkbox-label">
-                                  <input class="checkbox" type="checkbox" >
-                                  <span class="checkbox-custom"></span>
-
-                                </label>
-                                <div class="label-text fa-md d-inline col-10">Lorem ipsum dolor sit amet.</div>
-                              </div> -->
-                               <!---close item-->
-                              <!-- <div class="item row"> -->
-                                 <!---item-->
-                                <!-- <label class="col-1 checkbox-label">
-                                  <input class="checkbox" type="checkbox" >
-                                  <span class="checkbox-custom"></span>
-
-                                </label>
-                                <div class="label-text fa-md d-inline col-10">Lorem ipsum dolor sit amet.</div>
-                              </div> -->
-                               <!---close item-->
-<!--                          
-                            </div>
-                            
-                          </div>
-                        </div> -->
+                                  <!-- <div class="item row ">  -->
+                                     <!---item-->
+                                      <!-- <label class="col-1 checkbox-label">
+                                      <input class="checkbox " type="checkbox" >
+                                      <span class="checkbox-custom"></span> 
+    
+                                      <span class="checkbox-custom"></span>
+                                    </label>
+                                    <div class="label-text fa-md d-inline col-10">Lorem ipsum dolor sit ame</div>
+                                  </div>  -->
+                                   <!---close item-->
+                                  <!-- <div class="item row"> -->
+                                     <!---item-->
+                                    <!-- <label class="col-1 checkbox-label">
+                                      <input class="checkbox" type="checkbox" >
+                                      <span class="checkbox-custom"></span>
+    
+                                    </label>
+                                    <div class="label-text fa-md d-inline col-10">Lorem ipsum dolor sit amet.</div>
+                                  </div> -->
+                                   <!---close item-->
+                                  <!-- <div class="item row">  -->
+                                    <!---item-->
+                                    <!-- <label class="col-1 checkbox-label">
+                                      <input class="checkbox" type="checkbox" >
+                                      <span class="checkbox-custom"></span>
+    
+                                    </label>
+                                    <div class="label-text fa-md d-inline col-10">Lorem ipsum dolor sit amet.</div>
+                                  </div> -->
+                                   <!---close item-->
+                          
+                                   <!---close item-->         
+                                <!-- </div>
+                                
+                              </div>
+                            </div> -->
+                        
+                      
                         <!---card-->
                         <!-- <div class="col to-do-list d-flex justify-content-center mb-3 ">  -->
                           <!-- <div class="todo-container">

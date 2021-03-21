@@ -12,19 +12,19 @@
 
 .welcome-container {
   @include card;
-  opacity: 0; //change to 100
+  opacity: 100; //change to 100
   position: absolute;
   top: 25vh;
   z-index: +20;
 }
 
 .dashboard {
-  opacity: 100; //change to 0
+  opacity: 0; //change to 0
   transition: 2s;
 }
 
 .user-info {
-  opacity: 100; //change to 0
+  opacity: 0; //change to 0
   transition: 2s;
 }
 
@@ -143,7 +143,22 @@
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
   border-radius: 52px 52px 0px 0px;
-  overflow: scroll;
+  overflow-y: scroll;
+}
+
+.main-area::-webkit-scrollbar {
+  width: 12px;
+  max-height: 10vh;
+}
+
+.main-area::-webkit-scrollbar-track {
+  background: rgba(185, 233, 255, 0);
+}
+
+.main-area::-webkit-scrollbar-thumb {
+  background-color: #4dc7f749;
+  border-radius: 20px;
+  // border: 3px solid $maincolor;
 }
 
 .take-note-minibox {
@@ -222,11 +237,26 @@
 }
 
 .todo-card-title {
-  @include glassmorphism;
+  // background: rgba(255, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
   padding: 1rem 1rem;
   padding-left: 2rem;
   border-radius: 22px 22px 0px 0px;
   box-shadow: 3px -3px 42px rgba(177, 177, 177, 0.2);
+  position: relative;
+}
+
+.bi-x-square {
+  position: fixed;
+  right: 1.5rem;
+  top: 1.1rem;
+  color: rgba(83, 83, 83, 0.555);
+  font-size: 1.3rem;
+
+  &:hover {
+    color: rgb(230, 104, 104);
+  }
 }
 
 .todo-card-body {
@@ -244,9 +274,23 @@
   color: $Accentcolour;
 }
 
-.item {
-  margin-bottom: 0.4rem;
+.linethrough {
+  text-decoration: line-through;
 }
+
+.item {
+  text-decoration: none;
+  margin-bottom: 0.4rem;
+  transition: 2s;
+}
+
+// .order {
+//   order: +1;
+// }
+
+// .card-delete-btn {
+//   margin-left: 1vw;
+// }
 
 .checkbox {
   display: inline-block;
@@ -273,6 +317,7 @@
   border-radius: 52px 0px 0px 52px;
   margin-bottom: 20px;
   margin-top: 20px;
+  margin-left: 1rem;
   padding: 0.5rem 10rem 0.5rem 1rem;
   z-index: +5;
 }
@@ -284,8 +329,8 @@
   border: none;
   padding: 0.3rem 0.7rem;
   border-radius: 33px;
-  margin-left: -10px;
-  margin-top: 30px;
+  margin-left: 2rem;
+  margin-top: 0rem;
   z-index: +1;
 }
 
@@ -470,10 +515,12 @@
 .username-input {
   width: 45%;
   margin: 1.5rem 1rem 1.5rem 0rem;
+  position: relative;
 }
 
 .close-button {
+  position: absolute;
   font-size: 2rem;
   color: rgba(109, 109, 109, 0.637);
-  margin-left: 5rem;
+  right: 1rem;
 }
