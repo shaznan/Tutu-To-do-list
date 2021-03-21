@@ -40,13 +40,13 @@ I have registered four(4) users to use this app only for the purpose of demonstr
 
 ![alt text](https://github.com/shaznan/Tutu-To-do-list/blob/main/dist/images/Read%20Me%20images/Login.png?raw=true)
 
-##### Any of the four user's login credentials can be used to login to the app
+- Any of the four user's login credentials can be used to login to the app
 
 3) Start tutu-ing right away by clicking on the take notes container
 
 ![alt text](https://github.com/shaznan/Tutu-To-do-list/blob/main/dist/images/Read%20Me%20images/Card-layout.png?raw=true)
 
-##### Once clicked, your container will expand allowing you to take down multiple items under one title.
+- Once clicked, your container will expand allowing you to take down multiple items under one title by using the 'Enter' key
     - You can delete notes by clicking on the bin icon
     - Once you have taken down your notes, you can choose your preferred colour out of the four options to differentiate your cards
   
