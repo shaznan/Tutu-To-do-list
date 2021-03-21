@@ -62,3 +62,7 @@ I have registered four(4) users to use this app only for the purpose of demonstr
 ##### You can assign tasks to any of the remaining three users by clicking on the assign task button
 
 ![alt text](https://github.com/shaznan/Tutu-To-do-list/blob/main/dist/images/Read%20Me%20images/Assign%20task.png?raw=true)
+
+5) Switch Users
+
+##### You can switch between users to see assigned tasks, or add to do items from their accounts and experiment around 
