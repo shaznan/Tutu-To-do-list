@@ -11,7 +11,7 @@ The calculator app was built using the below tools:
 
 ### Project Description
 
-The todo list app was built from scratch as a front end personal project using plane vanilla javascript, focusing on working with array methods, vanilla javascript virtual DOM methods and basic objects. 
+The todo list app was built from scratch as a front end personal project using plain vanilla javascript, focusing on working with array methods, vanilla javascript virtual DOM methods and basic objects. 
 
 I have registered four(4) users to use this app only for the purpose of demonstrating switching between accounts and assigning tasks to different users. The login credentials of the users are as follows
 
