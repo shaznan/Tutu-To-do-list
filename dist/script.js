@@ -51,34 +51,30 @@ const account1 = {
   name: "Shaznan Fairoze",
   pin: 1234,
   notes: [],
-  // class: shaznanCard,
 };
 
 const account2 = {
   name: "Shazmeer Ramzeen",
   pin: 1111,
   notes: [],
-  // class: shazmmerCard,
 };
 
 const account3 = {
   name: "Jarrod Philips",
   pin: 0000,
   notes: [],
-  // class: jarrodCard,
 };
 
 const account4 = {
   name: "Abdullah Hamza",
   pin: 4349,
   notes: [],
-  // class: abdullahCard,
 };
 
 const accounts = [account1, account2, account3, account4];
 
 //Login
-//Generating initials
+//Generating initials for login
 
 const getinitial = accounts.forEach(function (account) {
   account.username = account.name
@@ -90,21 +86,18 @@ const getinitial = accounts.forEach(function (account) {
   account.assignedClass = account.name.split(" ")[0] + "-card";
 });
 
-// let currentAssignedUserClass = assignedUser.name.split(" ")[0] + "-card";
-
 //Create login access
 
-let loggedInUser; //(need to remove = account1)
+let loggedInUser;
 
-loginSubmitButton.addEventListener("click", function (e) {
+loginSubmitButton.addEventListener("click", (e) => {
   e.preventDefault();
   accounts.forEach(function (acc, i) {
     if (
       acc.username == loginTextInput.value.toLowerCase() &&
       acc.pin == loginPasswordInput.value
     ) {
-      loggedInUser = acc; //logged in User (insert ths)
-      // console.log(loggedInUser);
+      loggedInUser = acc;
       loginContainer.classList.toggle("Reveal--login-container");
       //show cards relevant to logged in user
       displayCards();
@@ -127,8 +120,8 @@ loginSubmitButton.addEventListener("click", function (e) {
 //Working with take notes
 //Extend take a note container
 
-const containerExpand = function () {
-  takeNoteMiniText.addEventListener("click", function () {
+const containerExpand = () => {
+  takeNoteMiniText.addEventListener("click", () => {
     takeNoteMiniContainer.style.opacity = "0";
 
     setTimeout(() => (takeNoteMiniContainer.style.display = "none"), 300);
@@ -138,11 +131,10 @@ const containerExpand = function () {
     setTimeout(() => takeNoteContainerExpand.classList.add("opacity"), 200);
   });
 };
-
 containerExpand();
 
 //declaring function to remove notes container
-const removeNotesContainer = function () {
+const removeNotesContainer = () => {
   takeNoteMiniContainer.style.opacity = "100";
 
   setTimeout(() => (takeNoteMiniContainer.style.display = "block"), 1000);
@@ -164,19 +156,15 @@ const removeNotesContainer = function () {
 
 //close button
 
-const ExpandcloseBtn = function () {
+const ExpandcloseBtn = () => {
   expandContCloseBtn.addEventListener("click", removeNotesContainer);
 };
-
 ExpandcloseBtn();
 
 //working with take a note
 
-//place square text box as a place holder - done
-//add keydown event listener for enter button and create a new line with a new placeholder
-// let nodeLength;
-
-const newLine = function () {
+//new text area for list item on enter key press
+const newLine = () => {
   document.addEventListener("keydown", function (e) {
     if (
       e.key === "Enter" &&
@@ -188,11 +176,7 @@ const newLine = function () {
         <input class=" take-a-note-extended text-placeholder" type="text" placeholder=" Take a note.."><button class="delete-item"><i class="bi bi-trash-fill"></i></button>                          
       </div>`
       );
-      // takeNoteBodyExpand.lastElementChild.focus();
       takeNoteBodyExpand.lastElementChild.childNodes[1].focus();
-      // takeNoteBodyExpand.lastElementChild.childNodes[1].classList.add(
-      //   "has-focus"
-      // );
 
       let deleteBtn = document.querySelectorAll(".delete-item");
 
@@ -203,7 +187,7 @@ const newLine = function () {
             this.parentElement.remove();
           });
         }
-      }); //foreach
+      });
     }
   });
 };
@@ -226,54 +210,32 @@ const assignColor = (color) => {
 
 let bgColor;
 
-const changeColor = function (colours) {
+((colours) => {
   colours.forEach(function (color) {
-    color.addEventListener("click", function () {
+    color.addEventListener("click", () => {
       bgColor = window
         .getComputedStyle(color, null)
         .getPropertyValue("background-color");
       assignColor(bgColor);
     });
   });
-};
-
-changeColor(paintColor);
-
-//create class for each user
-
-// const createClass = function () {
-// let currentUserClass;
-// loggedInUser.class =
-
-// };
-
-// createClass();
-
-//add button - push to accounts as objects with property title, list array, and backgroundcolor
-//everytime add button is clicked the new object goes inside the array
-
-//create count
-// let allocatedTasks = document.querySelectorAll(".allocated-task").length;
-// console.log(allocatedTasks);
+})(paintColor);
 
 let counter = 0;
 
 //Add items to object array
-const addToDoList = function () {
+const addToDoList = () => {
   addBtnExpand.addEventListener("click", function () {
-    // counter++;
-    let test = document.querySelectorAll(`.${loggedInUser.assignedClass}`)
-      .length;
+    let NoOfAssignClasses = document.querySelectorAll(
+      `.${loggedInUser.assignedClass}`
+    ).length;
 
-    if (test == undefined) {
+    if (NoOfAssignClasses == undefined) {
       counter++; //for loop control
     } else {
-      counter = test;
+      counter = NoOfAssignClasses;
     }
-    console.log(allocatedTasks);
 
-    console.log(counter);
-    // console.log(allocatedTasks);
     let selectInputValues = Array.from(
       //converts node list to actual array
       document.querySelectorAll(".text-placeholder")
@@ -283,20 +245,10 @@ const addToDoList = function () {
       text: selectInputValues.map((x) => x.value), //return arr of input values
       backgroundColor: bgColor,
     });
-    console.log(loggedInUser);
-
-    // console.log(counter);
-
-    //create class for each user
-    // let currentUserClass = loggedInUser.name.split(" ")[0] + "-card";
-    // loggedInUser.class = currentUserClass;
-    // console.log(loggedInUser);
-    // console.log(currentUserClass);
 
     //create todo cards
 
-    // let count =
-    const createCards = function () {
+    const createCards = () => {
       //add title
       for (let i = counter; i < loggedInUser.notes.length; i++) {
         let arrayLoop = loggedInUser.notes[i];
@@ -309,7 +261,7 @@ const addToDoList = function () {
               <div class="todo-card-body d-flex flex-column">`
         );
 
-        arrayLoop.text.forEach(function (text) {
+        arrayLoop.text.forEach((text) => {
           //add text
           if (text !== "") {
             //if no text entered, don't add empty element
@@ -330,7 +282,7 @@ const addToDoList = function () {
         });
 
         //create function for colours
-        const changeColor = function () {
+        const changeColor = () => {
           let cardTitles = Array.from(
             document.querySelectorAll(".todo-card-title")
           );
@@ -368,7 +320,7 @@ const isChecked = function () {
   changeCounter = 0;
   Array.from(document.querySelectorAll(".checkbox")).forEach((check) => {
     //fires before dom elements
-    check.addEventListener("change", function (e) {
+    check.addEventListener("change", (e) => {
       changeCounter++;
       if (e.target.checked) {
         check.parentElement.parentElement.lastElementChild.classList.add(
@@ -384,7 +336,7 @@ const isChecked = function () {
   });
 };
 
-const cardDelete = function () {
+const cardDelete = () => {
   // delete card container
   document.querySelectorAll(".bi-x-square").forEach(function (button) {
     button.addEventListener("click", function () {
@@ -395,14 +347,9 @@ const cardDelete = function () {
 
 //Assign to-do task container
 
-//take username input value compare it with array user name
-//create a variable for assigned user
-// then take the title and assigned notes and push it to that's users array object
-//Add a comment on the title (a template literal on who assigned the task)
-
 //Assign Task button
 
-const assignTask = function () {
+const assignTask = () => {
   assignTaskBtn.addEventListener("click", function () {
     modelOverlay.style.visibility = "visible";
     assignTaskModel.style.visibility = "visible";
@@ -422,32 +369,20 @@ const assignTaskAdd = function () {
       accounts.forEach(function (acc, i) {
         if (acc.username == userNameInput.value) {
           let assignedUser = acc;
-          // loggedInUser = acc;
 
           assignedUser.notes.unshift({
             title: assignTaskTitle.value,
             text: [assignTaskText.value],
-            // selectInputValues.map((x) => x.value)
           });
-          console.log(accounts);
           closeAssignContainer();
-          console.log(loggedInUser);
-          // let currentAssignedUserClass =
-          //   assignedUser.name.split(" ")[0] + "-card";
 
-          // acc.class = currentAssignedUserClass;
           let finaltest;
 
           finaltest = document.querySelectorAll(
             `.${acc.assignedClass}-allocated-task`
           ).length;
 
-          // console.log(finaltest);
-
-          // assignCounter++;
-          // console.log(assignCounter);
           assignedUserNotes = acc.notes;
-          // assignedArray = assignedUserNotes.slice(0, finaltest + 1).reverse();
           assignedArray = assignedUserNotes.slice(0, 1);
 
           //create cards
@@ -461,14 +396,6 @@ const assignTaskAdd = function () {
                   bi bi-x-square card-delete"></i></div>
                   <div class="todo-card-body d-flex flex-column">`
             );
-
-            // assignCounter = 0;
-
-            // finaltest = document.querySelectorAll(
-            //   `.${acc.assignedClass}-allocated-task`
-            // ).length;
-
-            // console.log(finaltest);
 
             let assignedText = arrayLoop.text;
             //add text
@@ -486,15 +413,12 @@ const assignTaskAdd = function () {
                    <div class="label-text fa-md d-inline col-10">${assignedText}</div>
                  </div>  `
               );
-              // console.log(text, i);
             }
           }
-          //end create cards
           displayCards();
           cardDelete();
           isChecked();
           allocatedTasks = document.querySelectorAll(".allocated-task").length;
-          // console.log(allocatedTasks);
         }
       });
     });
@@ -503,7 +427,7 @@ const assignTaskAdd = function () {
 assignTaskAdd();
 
 //assign task close button
-const closeAssignContainer = function () {
+const closeAssignContainer = () => {
   modelOverlay.style.visibility = "hidden";
   assignTaskModel.style.visibility = "hidden";
   assignTaskTitle.value = "";
@@ -511,7 +435,7 @@ const closeAssignContainer = function () {
   userNameInput.value = "";
 };
 
-const assignTaskClose = function () {
+const assignTaskClose = () => {
   assignTaskCloseBtn.addEventListener("click", closeAssignContainer);
 };
 
@@ -519,7 +443,7 @@ assignTaskClose();
 
 //Create switch user button
 
-const switchUser = function () {
+const switchUser = () => {
   switchUserBtn.addEventListener("click", function (e) {
     e.preventDefault();
     //reset previous input values to none
@@ -532,27 +456,17 @@ const switchUser = function () {
     userInfo.style.opacity = "0";
     console.log("hi");
 
-    //reset everything
-    //1) remove dp
     profilePic.innerHTML = "";
     assignCounter = 0;
-
-    //2) reset counter
-    // counter = 0;
-
-    //3) filtering cards
-
-    // loggedInUser.class
-    //use filter/find method with object keys and do something
   });
 };
 switchUser();
 
-const displayCards = function () {
+const displayCards = () => {
   //show cards relevant to logged in user
   let toDoList = document.querySelectorAll(".to-do-list");
 
-  toDoList.forEach(function (item) {
+  toDoList.forEach((item) => {
     if (item.classList.contains(`${loggedInUser.assignedClass}`)) {
       item.style.transform = "scale(1)";
       // check.parentElement.parentElement.style.order =
@@ -563,27 +477,3 @@ const displayCards = function () {
     }
   });
 };
-
-// const assignTaskUpdateUi = function () {};
-
-// assignTaskUpdateUi();
-
-//
-
-// let userName = userNameInput.value;
-// selectAcc = accounts.filter((account) => account.name == userName);
-// console.log(selectAcc);
-
-// acc.username == loginTextInput.value.toLowerCase() &&
-//   acc.pin == loginPasswordInput.value;
-
-//give cards custom clases based on the names of accounts
-
-/////////////////////////////////////////////////////////////////////
-
-///add classlists for assigned task
-// get lenght of assign task
-//start counter from there
-
-//give a name to the class
-//query selector if equals to logged in user ect
