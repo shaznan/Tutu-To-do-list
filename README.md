@@ -44,6 +44,7 @@ I have registered four(4) users to use this app only for the purpose of demonstr
 
 3) Start tutu-ing right away by clicking on the take notes container
 
+
 ![alt text](https://github.com/shaznan/Tutu-To-do-list/blob/main/dist/images/Read%20Me%20images/Card-layout.png?raw=true)
 
 - Once clicked, your container will expand allowing you to take down multiple items under one title by using the 'Enter' key
@@ -51,6 +52,10 @@ I have registered four(4) users to use this app only for the purpose of demonstr
     - Once you have taken down your notes, you can choose your preferred colour out of the four options to differentiate your cards
   
 ![alt text](https://github.com/shaznan/Tutu-To-do-list/blob/main/dist/images/Read%20Me%20images/Expand%20container.png?raw=true)
+
+- You can check finished off items, which will bring the unfinished items on top. 
+- You can delete cards once all the items have been checked. 
+- 
 
 4) Assign Tasks
 
