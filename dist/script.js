@@ -1,43 +1,3 @@
-//class selections
-const welcBtn = document.querySelector(".welcome-btn");
-const welcContainer = document.querySelector(".welcome-container");
-const loginContainer = document.querySelector(".login-container");
-const loginTextInput = document.querySelector(".input-name");
-const loginPasswordInput = document.querySelector(".input-password");
-const loginSubmitButton = document.querySelector(".login-btn");
-const dashboard = document.querySelector(".dashboard");
-const userInfo = document.querySelector(".user-info");
-const profilePic = document.querySelector(".profile-avatar");
-const loginUserName = document.querySelector(".username");
-const takeNoteMiniText = document.querySelector(".take-note");
-const takeNoteMiniContainer = document.querySelector(
-  ".take-note-mini-container"
-);
-const takeNoteContainerExpand = document.querySelector(".expand-container");
-const takeNoteInputExpand = document.querySelector(".text-placeholder");
-const takeNoteBodyExpand = document.querySelector(".takenote-body-expand");
-const titleInputExpand = document.querySelector(".title-placeholder");
-const titleInpcontExpand = document.querySelector(".take-note-title-container");
-const expandContCloseBtn = document.querySelector(".expand-close-button");
-const addBtnExpand = document.querySelector(".add-btn-expand");
-const mainArea = document.querySelector(".main-area");
-const cardsArea = document.querySelector(".cards-area");
-// const itemsContainer = document.querySelector(".items-container");
-const cardBody = document.querySelector(".todo-card-body");
-const cardTitle = document.querySelector(".todo-card-title");
-const checkBox = Array.from(document.querySelectorAll(".checkbox"));
-let cardDeleteBtna = document.querySelectorAll(".bi-x-square");
-// const checkBox = Array.from(document.getElementById("test"));
-const userNameInput = document.querySelector(".username-input");
-const assignTaskBtn = document.querySelector(".Assign-tasks");
-const assignTaskModel = document.querySelector(".assign-task-model");
-const modelOverlay = document.querySelector(".model-overlay");
-const assignTaskAddBtn = document.querySelector(".assign-task-addbtn");
-const assignTaskTitle = document.querySelector(".assign-note-title");
-const assignTaskText = document.querySelector(".assign-note-text");
-const assignTaskCloseBtn = document.querySelector(".assign-task-close-btn");
-const switchUserBtn = document.querySelector(".switch-user-btn");
-
 //welcome interaction
 
 welcBtn.addEventListener("click", function () {
@@ -90,7 +50,7 @@ const getinitial = accounts.forEach(function (account) {
 
 let loggedInUser;
 
-loginSubmitButton.addEventListener("click", (e) => {
+loginSubmitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   accounts.forEach(function (acc, i) {
     if (
@@ -315,8 +275,6 @@ const addToDoList = () => {
 addToDoList();
 
 const isChecked = function () {
-  // console.log(Array.from(document.querySelectorAll(".checkbox")));
-
   changeCounter = 0;
   Array.from(document.querySelectorAll(".checkbox")).forEach((check) => {
     //fires before dom elements
@@ -376,12 +334,6 @@ const assignTaskAdd = function () {
           });
           closeAssignContainer();
 
-          let finaltest;
-
-          finaltest = document.querySelectorAll(
-            `.${acc.assignedClass}-allocated-task`
-          ).length;
-
           assignedUserNotes = acc.notes;
           assignedArray = assignedUserNotes.slice(0, 1);
 
@@ -393,7 +345,7 @@ const assignTaskAdd = function () {
               `<div class="col to-do-list d-flex  ${acc.assignedClass}-allocated-task justify-content-center ${acc.assignedClass} mb-3">
                 <div class="todo-container">
                   <div class="todo-card-title bg-dark text-light">${arrayLoop.title}<span class = 'h6 text-warning ml-2'>(assigned task)</span><i class="
-                  bi bi-x-square card-delete"></i></div>
+                  bi bi-x-square card-delete text-danger"></i></div>
                   <div class="todo-card-body d-flex flex-column">`
             );
 
@@ -415,9 +367,9 @@ const assignTaskAdd = function () {
               );
             }
           }
-          displayCards();
-          cardDelete();
-          isChecked();
+          displayCards(); //display cards
+          cardDelete(); // call delete function on assigned cards
+          isChecked(); // call ischecked function on assigned cards
           allocatedTasks = document.querySelectorAll(".allocated-task").length;
         }
       });
