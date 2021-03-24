@@ -27,7 +27,6 @@ const cardBody = document.querySelector(".todo-card-body");
 const cardTitle = document.querySelector(".todo-card-title");
 const checkBox = Array.from(document.querySelectorAll(".checkbox"));
 let cardDeleteBtna = document.querySelectorAll(".bi-x-square");
-// const checkBox = Array.from(document.getElementById("test"));
 const userNameInput = document.querySelector(".username-input");
 const assignTaskBtn = document.querySelector(".Assign-tasks");
 const assignTaskModel = document.querySelector(".assign-task-model");

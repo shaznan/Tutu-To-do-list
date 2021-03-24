@@ -7,29 +7,18 @@ welcBtn.addEventListener("click", function () {
 
 // Accounts
 
-const account1 = {
-  name: "Shaznan Fairoze",
-  pin: 1234,
-  notes: [],
-};
+class Users {
+  constructor(name, pin) {
+    this.name = name;
+    this.pin = pin;
+    this.notes = [];
+  }
+}
 
-const account2 = {
-  name: "Shazmeer Ramzeen",
-  pin: 1111,
-  notes: [],
-};
-
-const account3 = {
-  name: "Jarrod Philips",
-  pin: 0000,
-  notes: [],
-};
-
-const account4 = {
-  name: "Abdullah Hamza",
-  pin: 4349,
-  notes: [],
-};
+const account1 = new Users("Shaznan Fairoze", 1234);
+const account2 = new Users("Shazmeer Ramzeen", 1111);
+const account3 = new Users("Jarrod Phillips", 0909);
+const account4 = new Users("Abdullah Hamza", 4349);
 
 const accounts = [account1, account2, account3, account4];
 
