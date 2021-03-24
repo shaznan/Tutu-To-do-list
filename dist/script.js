@@ -298,8 +298,8 @@ const cardDelete = () => {
 
 const assignTask = () => {
   assignTaskBtn.addEventListener("click", function () {
-    modelOverlay.style.visibility = "visible";
-    assignTaskModel.style.visibility = "visible";
+    modelOverlay.style.visibility = assignTaskModel.style.visibility =
+      "visible";
   });
 };
 
@@ -371,9 +371,7 @@ assignTaskAdd();
 const closeAssignContainer = () => {
   modelOverlay.style.visibility = "hidden";
   assignTaskModel.style.visibility = "hidden";
-  assignTaskTitle.value = "";
-  assignTaskText.value = "";
-  userNameInput.value = "";
+  assignTaskTitle.value = assignTaskText.value = userNameInput.value = "";
 };
 
 const assignTaskClose = () => {
@@ -388,14 +386,11 @@ const switchUser = () => {
   switchUserBtn.addEventListener("click", function (e) {
     e.preventDefault();
     //reset previous input values to none
-    loginTextInput.value = "";
-    loginPasswordInput.value = "";
+    loginTextInput.value = loginPasswordInput.value = "";
 
     //reveal login container
     loginContainer.classList.toggle("Reveal--login-container");
-    dashboard.style.opacity = "0";
-    userInfo.style.opacity = "0";
-    console.log("hi");
+    dashboard.style.opacity = userInfo.style.opacity = "0";
 
     profilePic.innerHTML = "";
     assignCounter = 0;
@@ -403,18 +398,21 @@ const switchUser = () => {
 };
 switchUser();
 
+let itemAssign;
+
 const displayCards = () => {
   //show cards relevant to logged in user
   let toDoList = document.querySelectorAll(".to-do-list");
 
+  const display = (scale, order) => {
+    itemAssign.style.transform = `scale(${scale})`;
+    itemAssign.style.order = order;
+  };
+
   toDoList.forEach((item) => {
-    if (item.classList.contains(`${loggedInUser.assignedClass}`)) {
-      item.style.transform = "scale(1)";
-      // check.parentElement.parentElement.style.order =
-      item.style.order = -1;
-    } else {
-      item.style.transform = "scale(0)";
-      item.style.order = 1;
-    }
+    itemAssign = item;
+    item.classList.contains(`${loggedInUser.assignedClass}`)
+      ? display(1, -1)
+      : display(0, 1);
   });
 };
