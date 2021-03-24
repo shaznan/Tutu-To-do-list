@@ -270,14 +270,11 @@ const isChecked = function () {
     check.addEventListener("change", (e) => {
       changeCounter++;
       if (e.target.checked) {
-        check.parentElement.parentElement.lastElementChild.classList.add(
-          "linethrough"
-        );
-        check.parentElement.parentElement.style.order = `${changeCounter}`; // moving selected elements to the bottom (oldest => top)
+        console.log(check);
+        check.closest(".item").lastElementChild.classList.add("linethrough");
+        check.closest(".item").style.order = `${changeCounter}`; // moving selected elements to the bottom (oldest => top)
       } else {
-        check.parentElement.parentElement.lastElementChild.classList.remove(
-          "linethrough"
-        );
+        check.closest(".item").lastElementChild.classList.remove("linethrough");
       }
     });
   });
@@ -287,7 +284,7 @@ const cardDelete = () => {
   // delete card container
   document.querySelectorAll(".bi-x-square").forEach(function (button) {
     button.addEventListener("click", function () {
-      button.parentElement.parentElement.parentElement.remove();
+      button.closest(".todo-container").remove();
     });
   });
 };
