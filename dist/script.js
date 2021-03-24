@@ -369,8 +369,7 @@ assignTaskAdd();
 
 //assign task close button
 const closeAssignContainer = () => {
-  modelOverlay.style.visibility = "hidden";
-  assignTaskModel.style.visibility = "hidden";
+  modelOverlay.style.visibility = assignTaskModel.style.visibility = "hidden";
   assignTaskTitle.value = assignTaskText.value = userNameInput.value = "";
 };
 
