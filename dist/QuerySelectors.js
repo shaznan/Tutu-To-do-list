@@ -36,3 +36,4 @@ const assignTaskTitle = document.querySelector(".assign-note-title");
 const assignTaskText = document.querySelector(".assign-note-text");
 const assignTaskCloseBtn = document.querySelector(".assign-task-close-btn");
 const switchUserBtn = document.querySelector(".switch-user-btn");
+const addAssignTaskBtn = document.querySelector(".assign-task-addbtn");
