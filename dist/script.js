@@ -14,21 +14,21 @@ const account3 = new Users("Jarrod Phillips", "0000");
 const account4 = new Users("Abdullah Hamza", "4349");
 
 class App {
-  loggedInUser;
-  accounts = [account1, account2, account3, account4];
-  paintColor = document.querySelectorAll(".paint-color");
-  bgColor;
+  #loggedInUser;
+  #accounts = [account1, account2, account3, account4];
+  #paintColor = document.querySelectorAll(".paint-color");
+  #bgColor;
   counter = 0;
   arrayLoop;
-  changeCounter;
+  #changeCounter;
   allocatedTasks;
-  itemAssign;
+  #itemAssign;
 
   constructor() {
     //welcome btn
     welcBtn.addEventListener("click", this._welcMessage.bind(this));
     //get initials/assign unique class
-    this.accounts.forEach(this._getInitial);
+    this.#accounts.forEach(this._getInitial);
     //loginBtn
     loginSubmitBtn.addEventListener("click", this._initiateLogin.bind(this));
     //expand take notes container
@@ -72,7 +72,7 @@ class App {
 
   _initiateLogin(e) {
     e.preventDefault();
-    this.accounts.forEach(this._initializeLogin.bind(this));
+    this.#accounts.forEach(this._initializeLogin.bind(this));
   }
 
   _initializeLogin(acc, i) {
@@ -80,7 +80,7 @@ class App {
       acc.username == loginTextInput.value.toLowerCase() &&
       acc.pin == loginPasswordInput.value
     ) {
-      this.loggedInUser = acc;
+      this.#loggedInUser = acc;
       loginContainer.classList.toggle("Reveal--login-container");
       //show cards relevant to logged in user
       this._displayCards(); //add once display cards is added
@@ -167,12 +167,12 @@ class App {
   }
 
   _executeApplyColor() {
-    this.paintColor.forEach((color) => {
+    this.#paintColor.forEach((color) => {
       color.addEventListener("click", () => {
-        this.bgColor = window
+        this.#bgColor = window
           .getComputedStyle(color, null)
           .getPropertyValue("background-color");
-        this._assignColor(this.bgColor);
+        this._assignColor(this.#bgColor);
       });
     });
     // console.log("hi");
@@ -186,7 +186,7 @@ class App {
 
   _test() {
     let NoOfAssignClasses = document.querySelectorAll(
-      `.${this.loggedInUser.assignedClass}`
+      `.${this.#loggedInUser.assignedClass}`
     ).length;
 
     if (NoOfAssignClasses == undefined) {
@@ -199,10 +199,10 @@ class App {
       //converts node list to actual array
       document.querySelectorAll(".text-placeholder")
     );
-    this.loggedInUser.notes.push({
+    this.#loggedInUser.notes.push({
       title: titleInputExpand.value,
       text: selectInputValues.map((x) => x.value), //return arr of input values
-      backgroundColor: this.bgColor,
+      backgroundColor: this.#bgColor,
     });
 
     this._titleValidation();
@@ -210,14 +210,18 @@ class App {
 
   _createCards() {
     //add title
-    for (let i = this.counter; i < this.loggedInUser.notes.length; i++) {
+    for (let i = this.counter; i < this.#loggedInUser.notes.length; i++) {
       console.log(i);
-      this.arrayLoop = this.loggedInUser.notes[i];
+      this.arrayLoop = this.#loggedInUser.notes[i];
       cardsArea.insertAdjacentHTML(
         "afterbegin",
-        `<div class="col to-do-list d-flex justify-content-center ${this.loggedInUser.assignedClass} mb-3">
+        `<div class="col to-do-list d-flex justify-content-center ${
+          this.#loggedInUser.assignedClass
+        } mb-3">
                   <div class="todo-container">
-                    <div class="todo-card-title">${this.arrayLoop.title}<i class="
+                    <div class="todo-card-title">${
+                      this.arrayLoop.title
+                    }<i class="
                     bi bi-x-square card-delete"></i></div>
                     <div class="todo-card-body d-flex flex-column">`
       );
@@ -273,15 +277,15 @@ class App {
   }
 
   _isChecked() {
-    this.changeCounter = 0;
+    this.#changeCounter = 0;
     Array.from(document.querySelectorAll(".checkbox")).forEach((check) => {
       //fires before dom elements
       check.addEventListener("change", (e) => {
-        this.changeCounter++;
+        this.#changeCounter++;
         if (e.target.checked) {
           console.log(check);
           check.closest(".item").lastElementChild.classList.add("linethrough");
-          check.closest(".item").style.order = `${this.changeCounter}`; // moving selected elements to the bottom (oldest => top)
+          check.closest(".item").style.order = `${this.#changeCounter}`; // moving selected elements to the bottom (oldest => top)
         } else {
           check
             .closest(".item")
@@ -309,7 +313,7 @@ class App {
 
   _initiateAssignTaskAdd(e) {
     e.preventDefault();
-    this.accounts.forEach(this._assignTaskAdd.bind(this));
+    this.#accounts.forEach(this._assignTaskAdd.bind(this));
     // });
   }
 
@@ -321,7 +325,7 @@ class App {
         title: assignTaskTitle.value,
         text: [assignTaskText.value],
       });
-      console.log(this.loggedInUser);
+      console.log(this.#loggedInUser);
       this._closeAssignContainer();
 
       let assignedUserNotes = acc.notes;
@@ -374,13 +378,13 @@ class App {
     let toDoList = document.querySelectorAll(".to-do-list");
 
     const display = (scale, order) => {
-      this.itemAssign.style.transform = `scale(${scale})`;
-      this.itemAssign.style.order = order;
+      this.#itemAssign.style.transform = `scale(${scale})`;
+      this.#itemAssign.style.order = order;
     };
 
     toDoList.forEach((item) => {
-      this.itemAssign = item;
-      item.classList.contains(`${this.loggedInUser.assignedClass}`)
+      this.#itemAssign = item;
+      item.classList.contains(`${this.#loggedInUser.assignedClass}`)
         ? display(1, -1)
         : display(0, 1);
     });
@@ -408,8 +412,3 @@ class App {
 
 //Calling class app
 new App();
-
-// const switchUser = () => {
-
-// };
-// switchUser();

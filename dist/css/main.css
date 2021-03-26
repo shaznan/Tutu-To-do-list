@@ -483,18 +483,21 @@ button:focus {
   border-radius: 52px 0px 0px 52px;
   margin-bottom: 20px;
   margin-top: 20px;
-  margin-left: 1rem;
-  padding: 0.5rem 10rem 0.5rem 1rem;
+  margin-left: 0rem;
+  padding: 0.5rem 15rem 0.5rem 1rem;
   z-index: +5;
 }
 
 .Assign-tasks {
+  position: absolute;
+  left: 6vw;
   border: none;
   padding: 0.3rem 0.7rem;
   border-radius: 33px;
-  margin-left: 2rem;
+  margin-left: 0rem;
   margin-top: 0rem;
   z-index: +1;
+  white-space: nowrap;
 }
 
 .take-note-container {
