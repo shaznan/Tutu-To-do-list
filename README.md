@@ -36,7 +36,7 @@ I have registered four(4) users to use this app only for the purpose of demonstr
 
 ![alt text](https://github.com/shaznan/Tutu-To-do-list/blob/main/dist/images/Read%20Me%20images/Welcome.png?raw=true)
 
-2) Log in screem
+2) Log in screen
 
 ![alt text](https://github.com/shaznan/Tutu-To-do-list/blob/main/dist/images/Read%20Me%20images/Login.png?raw=true)
 
