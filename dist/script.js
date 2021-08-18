@@ -46,7 +46,7 @@ class App {
     //addAssigntask
     addAssignTaskBtn.addEventListener(
       "click",
-      this._initiateAssignTaskAdd.bind(this)
+      this._initiateAssignTaskAdd.bind(this),
     );
     //Assign task close Btn
     this._assignTaskClose();
@@ -89,6 +89,8 @@ class App {
 
       let profileDpAssign = `<img
         src="/dist/images/avatar/avatar-${i}.png"
+        src="./images/avatar/avatar-${i}.png"
+        
         alt="Profile-avatar"
         width="60vh"
       />`;
@@ -140,7 +142,7 @@ class App {
         "beforeend",
         `   <div class="item-list d-flex">
           <input class=" take-a-note-extended text-placeholder" type="text" placeholder=" Take a note.."><button class="delete-item"><i class="bi bi-trash-fill"></i></button>                          
-        </div>`
+        </div>`,
       );
       takeNoteBodyExpand.lastElementChild.childNodes[1].focus();
 
@@ -186,7 +188,7 @@ class App {
 
   _test() {
     let NoOfAssignClasses = document.querySelectorAll(
-      `.${this.#loggedInUser.assignedClass}`
+      `.${this.#loggedInUser.assignedClass}`,
     ).length;
 
     if (NoOfAssignClasses == undefined) {
@@ -197,7 +199,7 @@ class App {
 
     let selectInputValues = Array.from(
       //converts node list to actual array
-      document.querySelectorAll(".text-placeholder")
+      document.querySelectorAll(".text-placeholder"),
     );
     this.#loggedInUser.notes.push({
       title: titleInputExpand.value,
@@ -223,7 +225,7 @@ class App {
                       this.arrayLoop.title
                     }<i class="
                     bi bi-x-square card-delete"></i></div>
-                    <div class="todo-card-body d-flex flex-column">`
+                    <div class="todo-card-body d-flex flex-column">`,
       );
 
       this.arrayLoop.text.forEach((text) => {
@@ -240,7 +242,7 @@ class App {
                        <span class="checkbox-custom"></span>
                      </label>
                      <div class="label-text fa-md d-inline col-10">${text}</div>
-                   </div>  `
+                   </div>  `,
           );
           // console.log(text, i);
         }
@@ -248,7 +250,7 @@ class App {
 
       //create function for colours
       let cardTitles = Array.from(
-        document.querySelectorAll(".todo-card-title")
+        document.querySelectorAll(".todo-card-title"),
       );
       console.log(cardTitles);
 
@@ -340,7 +342,7 @@ class App {
                   <div class="todo-container">
                     <div class="todo-card-title bg-dark text-light">${arrayLoop.title}<span class = 'h6 text-warning ml-2'>(assigned task)</span><i class="
                     bi bi-x-square card-delete text-danger"></i></div>
-                    <div class="todo-card-body d-flex flex-column">`
+                    <div class="todo-card-body d-flex flex-column">`,
         );
 
         let assignedText = arrayLoop.text;
@@ -357,7 +359,7 @@ class App {
                        <span class="checkbox-custom"></span>
                      </label>
                      <div class="label-text fa-md d-inline col-10">${assignedText}</div>
-                   </div>  `
+                   </div>  `,
           );
         }
       }
