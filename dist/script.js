@@ -88,7 +88,6 @@ class App {
       userInfo.style.opacity = "1";
 
       let profileDpAssign = `<img
-        src="/dist/images/avatar/avatar-${i}.png"
         src="./images/avatar/avatar-${i}.png"
         
         alt="Profile-avatar"
