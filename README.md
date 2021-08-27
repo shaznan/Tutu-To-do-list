@@ -1,6 +1,6 @@
 # Tutu-To do list
 ## A feature-rich Todo list app
-The calculator app was built using the below tools:
+The web app was built using the below tools:
 - HTML
 - Bootstrap 4.0
 - Scss & CSS
