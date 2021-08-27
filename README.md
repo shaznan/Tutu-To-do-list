@@ -1,6 +1,5 @@
 # Tutu-To do list
-## Personal Project (To do list)
-
+## A feature-rich Todo list app
 The calculator app was built using the below tools:
 - HTML
 - Bootstrap 4.0
